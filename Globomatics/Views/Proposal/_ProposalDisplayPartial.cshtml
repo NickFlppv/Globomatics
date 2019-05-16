@@ -1,0 +1,31 @@
+﻿@using Shared.Models;
+@model ProposalModel
+
+<environment include="Development">
+    <link href="~/lib/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</environment>
+
+<div class="panel panel-default" id="purpule">
+    <div class="panel-heading">
+        <span class="panel-title">Proposal #@Model.Id: @Model.Title</span>
+    </div>
+    <div class="panel-body">
+        <span>Speaker: @Model.Speaker</span>
+        @if (Model.Approved)
+        {
+            <br />
+            <span>Approved:</span>
+            <div class="btn btn-default">Yes</div>
+        }
+        else
+        {
+            <a asp-action="Approve" asp-route-proposalId="@Model.Id">Approve</a>
+        }
+    </div>
+    <div class="panel-footer">
+        <a asp-action="Add" asp-controller="Proposal" asp-route-conferenceId="@ViewBag.ConferenceId" class="btn btn-default">
+            Add new proposal
+        </a>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.title {
+    color: #8e31ba;
+    font-weight: 600;
+}
+
+.logo {
+    display: inline;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+    .logo.logo-img {
+        background-color: rgba(105, 16, 184, 0.65)
+    }
+
+.btn.btn-default {
+    background-image: none;
+    background-color: rgb(105, 16, 184);
+    color: rgb(252, 193, 255)
+}
+.purple-check{
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/purple_check.png")
+}
+
+#purpule {
+    background-image: none;
+    background-color: rgba(105, 16, 184, 0.3)
+}

@@ -1,0 +1,21 @@
+﻿@using Shared.Models;
+@model ConferenceModel
+
+<environment include="Development">
+    <link href="~/lib/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</environment>
+
+<div class="panel panel-default" id="purpule">
+    <div class="panel-heading">
+        <span class="panel-title">@Model.Name</span>
+    </div>
+    <div class="panel-body">
+        <span>Location: @Model.Location</span>
+        <span>Start time: @Model.Start</span>
+        <span>Total attendance: @Model.AttendeeTotal</span>
+    </div>
+    <div class="panel-footer">
+        <a asp-action="Index" asp-controller="Proposal" asp-route-conferenceId="@Model.Id" class="btn btn-default">Proposals</a>
+    </div>
+</div>

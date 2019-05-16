@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link asp-href-include="css/*" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+     <div class="col-md-12 logo">
+        <img asp-append-version="true" src="~/img/logo.png" alt="logo" class="logo logo-img" />
+        <div class="title">
+            Globomatics
+        </div>
+    </div> 
+
+    <div class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+
+<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿@using Shared.Models
+@model IEnumerable<ProposalModel>
+
+<div class="row">
+    <div class="col-md-12 ">
+        @foreach (var proposal in Model)
+        {
+            <partial name="_ProposalDisplayPartial" model="proposal" />
+        }
+    </div>
+</div>

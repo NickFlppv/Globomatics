@@ -1,0 +1,19 @@
+﻿@using Shared.Models
+@model IEnumerable<ConferenceModel>
+
+<div class="row">
+    <div class="col-md-12 ">
+        @foreach (var conference in Model)
+        {
+            <partial name="_ConferenceDisplayPartial" model="conference" />
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-4">
+        <a asp-action="Add" class="btn btn-default">Add</a>
+    </div>
+</div>
