@@ -41,8 +41,12 @@ namespace Globomatics
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseHsts();
-
+            else
+            {
+                app.UseHsts(h => h.MaxAge(days: 365));
+            }
+            app.UseCsp(options => options.DefaultSources(s => s.Self()));
+            app.UseXfo(h => h.Deny());
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvc(routes => routes.MapRoute(
