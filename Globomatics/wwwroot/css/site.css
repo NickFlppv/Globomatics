@@ -1,5 +1,11 @@
 ﻿body {
+    padding: 20px;
     font-family: 'Open Sans', sans-serif;
+    background-image: url(../img/back.jpg);
+}
+
+div {
+    margin: 5px;
 }
 
 .title {
@@ -8,24 +14,35 @@
 }
 
 .logo {
-    display: inline;
-    width: 50px;
-    height: 50px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
     border-radius: 10px;
+    text-align:center;
 }
+
     .logo.logo-img {
         background-color: rgba(105, 16, 184, 0.65)
     }
 
+.form-group {
+    margin: 5px;
+}
+
+    .form-group.button {
+        padding-top: 25px;
+    }
+
+.card {
+    width: 90vw;
+}
+
 .btn.btn-default {
+    margin: 5px;
+    height: 40px;
     background-image: none;
     background-color: rgb(105, 16, 184);
     color: rgb(252, 193, 255)
-}
-.purple-check{
-    width: 40px;
-    height: 40px;
-    background-image: url("../img/purple_check.png")
 }
 
 #purpule {

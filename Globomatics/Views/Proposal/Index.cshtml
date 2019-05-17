@@ -2,10 +2,16 @@
 @model IEnumerable<ProposalModel>
 
 <div class="row">
-    <div class="col-md-12 ">
+    <div>
         @foreach (var proposal in Model)
         {
             <partial name="_ProposalDisplayPartial" model="proposal" />
         }
+    </div>
+    <div>
+        <a asp-action="Add" asp-controller="Proposal" asp-route-conferenceId="@ViewBag.ConferenceId" class="btn btn-default">
+            Add new proposal
+        </a>
+        <a asp-action="Index" asp-controller="Conference" class="btn btn-default">Back</a>
     </div>
 </div>

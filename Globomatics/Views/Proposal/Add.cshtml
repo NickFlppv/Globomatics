@@ -1,5 +1,23 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Shared.Models
+@model ProposalModel
+
+<form asp-action="Add">
+    <div class="row">
+        <div class="form-group">
+            <input asp-for="@Model.Id" type="hidden" />
+            <input asp-for="@Model.ConferenceId" type="hidden" />
+            <label asp-for="@Model.Title"></label>
+            <input asp-for="@Model.Title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Speaker"></label>
+            <input asp-for="@Model.Speaker" class="form-control" />
+        </div>
+
+        <div class="form-group button">
+            <input type="submit" value="Add" class="btn btn-default" />
+            <a asp-action="Index" class="btn btn-default">Back</a>
+        </div>
+    </div>
+</form>
+

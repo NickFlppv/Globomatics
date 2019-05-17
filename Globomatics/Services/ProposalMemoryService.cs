@@ -47,7 +47,7 @@ namespace Globomatics.Services
 
         public Task<IEnumerable<ProposalModel>> GetAll(int conferenceId)
         {
-            return Task.Run(() => proposals.Where(c => c.Id == conferenceId));
+            return Task.Run(() => proposals.Where(c => c.ConferenceId == conferenceId));
         }
     }
 }
