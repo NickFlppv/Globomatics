@@ -8,17 +8,19 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=cyrillic" rel="stylesheet">
 </head>
 <body>
-     <div class="logo">
+    <div class="logo">
         <img asp-append-version="true" src="~/img/logo.png" alt="logo" class="logo logo-img" />
         <div class="title">
             Globomatics
         </div>
-    </div> 
-
-    <div class="container-fluid">
-            @RenderBody()
     </div>
 
-<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    <footer>
+        <vc:statistics></vc:statistics>
+    </footer>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

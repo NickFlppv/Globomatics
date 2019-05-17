@@ -1,0 +1,18 @@
+﻿@using Shared.Models
+@model StatisticsModel
+
+<div class="card">
+    <div class="card-header">
+        Statistics
+    </div>
+    <div class="card-body">
+        <div>
+            <label asp-for="@Model.AverageConferenceAttendees"></label>
+            <span> : @Model.AverageConferenceAttendees</span>
+        </div>
+        <div>
+            <label asp-for="@Model.NumberOfAttendees"></label>
+            <span> : @Model.NumberOfAttendees</span>
+        </div>
+    </div>
+</div>
