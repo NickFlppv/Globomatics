@@ -7,6 +7,7 @@ using Globomatics.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -14,10 +15,21 @@ namespace Globomatics
 {
     public class Startup
     {
-        
+        private readonly IHostingEnvironment env;
+
+        public Startup(IHostingEnvironment env)
+        {
+            this.env = env;
+        }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            if (!env.IsDevelopment())
+            {
+                services.Configure<MvcOptions>(o =>
+                    o.Filters.Add(new RequireHttpsAttribute()));
+            }
+
             services.AddSingleton<IConferenceService, ConferenceMemoryService>();
             services.AddSingleton<IProposalService, ProposalMemoryService>();
         }
