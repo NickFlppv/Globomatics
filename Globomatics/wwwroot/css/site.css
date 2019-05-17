@@ -1,6 +1,7 @@
 ﻿body {
     padding: 20px;
     font-family: 'Open Sans', sans-serif;
+    color: rgb(105, 16, 184);
     background-image: url(../img/back.jpg);
 }
 
@@ -10,7 +11,7 @@ div {
 
 .title {
     color: #8e31ba;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .logo {
@@ -37,6 +38,12 @@ div {
     width: 90vw;
 }
 
+    .card.card-statistics {
+        width: 45vw;
+        background-image: none;
+        background-color: rgba(0, 139, 255, 0.50);
+        color: rgb(98, 24, 218);
+    }
 .btn.btn-default {
     margin: 5px;
     height: 40px;
