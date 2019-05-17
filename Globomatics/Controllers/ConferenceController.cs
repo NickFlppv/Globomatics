@@ -30,6 +30,7 @@ namespace Globomatics.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(ConferenceModel model)
         {
             if (ModelState.IsValid)

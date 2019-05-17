@@ -41,6 +41,8 @@ namespace Globomatics
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseHsts();
+
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvc(routes => routes.MapRoute(

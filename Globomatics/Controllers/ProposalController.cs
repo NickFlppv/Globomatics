@@ -38,6 +38,7 @@ namespace Globomatics.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(ProposalModel model)
         {
             if (ModelState.IsValid)
