@@ -46,7 +46,7 @@ namespace Globomatics
             options.UseSqlServer(config.GetConnectionString("GlobomaticsConnection"),
              b => b.MigrationsAssembly("Globomatics")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.Password.RequireNonAlphanumeric = false)
                 .AddEntityFrameworkStores<IdentityDbContext>();
         }
 
