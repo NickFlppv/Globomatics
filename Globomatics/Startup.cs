@@ -24,6 +24,9 @@ namespace Globomatics
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            //services.AddLogging(c => c.AddConsole());
+            //шифрование данных
+            services.AddDataProtection();
             if (!env.IsDevelopment())
             {
                 services.Configure<MvcOptions>(o =>
@@ -32,6 +35,7 @@ namespace Globomatics
 
             services.AddSingleton<IConferenceService, ConferenceMemoryService>();
             services.AddSingleton<IProposalService, ProposalMemoryService>();
+            services.AddSingleton<PurposeStringConstants>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,

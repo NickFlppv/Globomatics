@@ -16,6 +16,6 @@
         <span>Total attendance: @Model.AttendeeTotal</span>
     </div>
     <div class="card-footer">
-        <a asp-action="Index" asp-controller="Proposal" asp-route-conferenceId="@Model.Id" class="btn btn-default">Proposals</a>
+        <a asp-action="Index" asp-controller="Proposal" asp-route-conferenceId="@Model.EncryptedId" class="btn btn-default">Proposals</a>
     </div>
 </div>

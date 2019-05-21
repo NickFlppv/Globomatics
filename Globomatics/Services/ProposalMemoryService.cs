@@ -1,4 +1,5 @@
-﻿using Shared.Models;
+﻿using Microsoft.AspNetCore.DataProtection;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,16 @@ namespace Globomatics.Services
     public class ProposalMemoryService : IProposalService
     {
         private readonly List<ProposalModel> proposals = new List<ProposalModel>();
-
-        public ProposalMemoryService()
+        private readonly IDataProtector protector;
+        public ProposalMemoryService(IDataProtectionProvider protectionProvider,
+            PurposeStringConstants purposeStringConstants)
         {
+            protector = protectionProvider.CreateProtector(purposeStringConstants.ConferenceIdQueryString);
             proposals.Add(new ProposalModel
             {
                 Id = 1,
                 ConferenceId = 1,
+                EncryptedConferenceId = protector.Protect("1"),
                 Speaker = "Nikolay Filippov",
                 Title = "ASP.NET Core 2.x"
             });
@@ -23,6 +27,7 @@ namespace Globomatics.Services
             {
                 Id = 2,
                 ConferenceId = 2,
+                EncryptedConferenceId = protector.Protect("2"),
                 Speaker = "John Doe",
                 Title = "Understanding C#"
             });
