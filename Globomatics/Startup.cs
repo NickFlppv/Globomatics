@@ -7,7 +7,11 @@ using Globomatics.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -16,15 +20,16 @@ namespace Globomatics
     public class Startup
     {
         private readonly IHostingEnvironment env;
+        private readonly IConfiguration config;
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, IConfiguration config)
         {
             this.env = env;
+            this.config = config;
         }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            //services.AddLogging(c => c.AddConsole());
             //шифрование данных
             services.AddDataProtection();
             if (!env.IsDevelopment())
@@ -36,6 +41,13 @@ namespace Globomatics
             services.AddSingleton<IConferenceService, ConferenceMemoryService>();
             services.AddSingleton<IProposalService, ProposalMemoryService>();
             services.AddSingleton<PurposeStringConstants>();
+
+            services.AddDbContext<IdentityDbContext>(options =>
+            options.UseSqlServer(config.GetConnectionString("GlobomaticsConnection"),
+             b => b.MigrationsAssembly("Globomatics")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<IdentityDbContext>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,
@@ -53,6 +65,9 @@ namespace Globomatics
             app.UseXfo(h => h.Deny());
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            logger.Log(LogLevel.Information,
+                $"Connection string:{config.GetConnectionString("GlobomaticsConnection")}");
+            app.UseAuthentication();
             app.UseMvc(routes => routes.MapRoute(
                 name: "default",
                 template: "{controller=Conference}/{action=Index}/{Id?}"));
