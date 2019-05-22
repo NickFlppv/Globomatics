@@ -1,4 +1,5 @@
 ﻿using Globomatics.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Models;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Globomatics.Controllers
 {
+    [Authorize]
     public class ConferenceController : Controller
     {
         private readonly IConferenceService conferenceService;

@@ -1,4 +1,5 @@
 ﻿using Globomatics.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Globomatics.Controllers
 {
-    //TODO: adding proposals with encryption
+    [Authorize]
     public class ProposalController : Controller
     {
         private readonly IConferenceService conferenceService;
