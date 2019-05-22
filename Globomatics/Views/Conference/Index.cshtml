@@ -2,7 +2,9 @@
 @model IEnumerable<ConferenceModel>
 
 <div class="text text-info">@TempData["Registered"]</div>
-
+@section Register{
+    <a asp-action="Register" asp-controller="Account" class="btn btn-default">Sign Up</a>
+}
 <div class="row">
     <div>
         @foreach (var conference in Model)

@@ -14,8 +14,9 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
-    <Folder Include="wwwroot\lib\bootstrap\css\" />
     <Folder Include="wwwroot\lib\bootstrap\js\" />
+    <Folder Include="wwwroot\lib\jquery\" />
+    <Folder Include="wwwroot\scripts\" />
   </ItemGroup>
 
   <ItemGroup>
