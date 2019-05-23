@@ -1,10 +1,26 @@
 ﻿@using Shared.Models
+@using Microsoft.AspNetCore.Identity
 @model IEnumerable<ConferenceModel>
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
 
 <div class="text text-info">@TempData["Registered"]</div>
-@section Register{
-    <a asp-action="Register" asp-controller="Account" class="btn btn-default">Sign Up</a>
-}
+
+<nav class="navbar">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div>
+            <span>@UserManager.GetUserName(User)</span>
+            <a asp-action="Logout" asp-controller="Account" class="btn btn-default">Log out</a>
+        </div>
+    }
+    else
+    {
+        <div>
+            <a asp-action="Register" asp-controller="Account" class="btn btn-default">Sign Up</a>
+        </div>
+    }
+</nav>
 <div class="row">
     <div>
         @foreach (var conference in Model)

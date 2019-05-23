@@ -35,7 +35,6 @@ namespace Globomatics.Controllers
 
             var result = await userManager.CreateAsync(
                 new IdentityUser { UserName = model.Email, Email = model.Email}, model.Password);
-
             if (result.Succeeded)
             {
                 //return View("RegistrationConfirmation");
@@ -81,6 +80,13 @@ namespace Globomatics.Controllers
                 return View(model);
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LogOut()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Login");
         }
 
         private IActionResult RedirectToLocal(string returnUrl)
