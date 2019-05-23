@@ -8,6 +8,8 @@
 div {
     margin: 5px;
 }
+.login-div{
+}
 
 .title {
     color: #8e31ba;
@@ -41,6 +43,13 @@ div {
     .card.card-statistics {
         width: 45vw;
         background-image: none;
+        background-color: rgba(0, 139, 255, 0.50);
+        color: rgb(98, 24, 218);
+    }
+    .card.card-login {
+        width: 45vw;
+        background-image: none;
+        text-align:center;
         background-color: rgba(0, 139, 255, 0.50);
         color: rgb(98, 24, 218);
     }

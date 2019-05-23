@@ -70,7 +70,7 @@ namespace Globomatics
             app.UseAuthentication();
             app.UseMvc(routes => routes.MapRoute(
                 name: "default",
-                template: "{controller=Conference}/{action=Index}/{Id?}"));
+                template: "{controller=Account}/{action=Login}/{Id?}"));
         }
     }
 }
