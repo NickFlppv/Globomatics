@@ -13,6 +13,7 @@ namespace Globomatics.Models
         public string Email { get; set; }
 
         [Required]
+        [Compare("ConfirmedPassword")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Password has to be confirmed")]

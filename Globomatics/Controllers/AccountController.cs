@@ -26,8 +26,14 @@ namespace Globomatics.Controllers
         }
 
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            if (model.Password != model.ConfirmedPassword)
+            {
+                ModelState.AddModelError("error", "Passwords are not equal.");
+                return View(model);
+            }
             if (!ModelState.IsValid)
             {
                 return View("Error");

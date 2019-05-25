@@ -1,6 +1,8 @@
 ﻿@using Globomatics.Models
 @model RegisterViewModel
 
+<div asp-validation-summary="@ValidationSummary.All"></div>
+
 <form asp-action="Register" class="card card-login">
     <div class="form-group">
         <label asp-for="Email"></label>
@@ -9,12 +11,12 @@
     </div>
     <div class="form-group">
         <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control" />
+        <input asp-for="Password" type="password" class="form-control" />
         <span asp-validation-for="Password"></span>
     </div>
     <div class="form-group">
         <label asp-for="ConfirmedPassword"></label>
-        <input asp-for="ConfirmedPassword" class="form-control"/>
+        <input asp-for="ConfirmedPassword" type="password" class="form-control"/>
         <span asp-validation-for="ConfirmedPassword"></span>
     </div>
     <input type="submit" value="Sign Up" class="btn btn-default" />
